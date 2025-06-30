@@ -6,6 +6,7 @@ import threading
 import pandas as pd
 
 TICKERS_LIST = [
+    # "IBOV.SA","HRFG3.SA",
     "AMBP3.SA", "CVCB3.SA", "BBAS3.SA", "BHIA3.SA", "BPAC11.SA", "BPAN4.SA",
     "AURA33.SA", "CSAN3.SA", "POMO4.SA", "INBR32.SA", "ITSA4.SA",
     "JBSS32.SA", "MGLU3.SA", "PETR4.SA", "PETZ3.SA", "PRIO3.SA", "RAIL3.SA",
