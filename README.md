@@ -1,8 +1,25 @@
 
 # Ticker - Scripts
 
-Este repositório contém scripts Python desenvolvidos para exibição de informações em painéis de LED com resolução customizada de 10104x144px. Este painel é dividido em três partes, onde duas são de 4092px e outra de 1920px. O projeto está dividido em duas funcionalidades principais: **monitoramento financeiro** e **exibição de avisos dinâmicos.**
+Este repositório centraliza scripts Python desenvolvidos especificamente para a operação de painéis de LED de ultra-larga escala, com resolução total de **10104x144px**.
 
+### 📐 Arquitetura do Display
+
+O software foi projetado para gerenciar uma composição lógica dividida em três segmentos distintos:
+
+- **Segmento A:** 4092px
+    
+- **Segmento B:** 4092px
+    
+- **Segmento C:** 1920px
+
+### ⚙️ Funcionalidades Principais
+
+O ecossistema está segmentado em duas frentes operacionais:
+
+1. **Monitoramento Financeiro:** Coleta e exibição do valor de ativos, moedas e commodities.
+    
+2. **Avisos Dinâmicos:** Exibição de mensagens com suporte a emojis, carateres especiais e GIFs.
 
 ---
 
