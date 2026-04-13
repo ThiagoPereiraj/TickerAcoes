@@ -6,30 +6,30 @@ import time
 import threading
 import math
 
-# --- CONFIGURAÇÕES DE DESIGN (Ajustado para 144px de altura total) ---
+
 
 # Cores
-COR_FUNDO_TELA = "#000000"      # Preto absoluto para fundir com o painel LED
-COR_CARD_BG = "#292929"         # Fundo do card levemente mais claro
-COR_TICKER = "#FFFFFF"          # Branco
-COR_PRECO = "#CCCCCC"           # Cinza claro
-COR_SOBE = "#4CD964"            # Verde
-COR_DESCE = "#FF3B30"           # Vermelho
-COR_NEUTRO = "#808080"          # Cinza escuro
+COR_FUNDO_TELA = "#000000"      
+COR_CARD_BG = "#292929"     
+COR_TICKER = "#FFFFFF"         
+COR_PRECO = "#CCCCCC"           
+COR_SOBE = "#4CD964"            
+COR_DESCE = "#FF3B30"           
+COR_NEUTRO = "#808080"          
 
-# Fontes (Reduzidas para caber em 72px de altura)
+# Fontes 
 FONTE_FAMILIA = "Segoe UI"      
-TAMANHO_TICKER = 32             # Ajustado para altura 72
-TAMANHO_DADOS = 31              # Ajustado para altura 72
+TAMANHO_TICKER = 32             
+TAMANHO_DADOS = 30              
 
 # Dimensões e Velocidade
-LARGURA_BLOCO_TOTAL = 650
-LARGURA_TELA = 8184             
-ALTURA_TICKER_POR_LINHA = 72    # <--- EXATAMENTE 72px
+LARGURA_BLOCO_TOTAL = 650 # Bloco de cada ativo (incluindo espaçamento)
+LARGURA_TELA = 10104             
+ALTURA_TICKER_POR_LINHA = 72    
 VELOCIDADE_ROLAGEM = 3          # Esquerda -> Direita
 TEMPO_ATUALIZACAO_MIN = 1
 
-# --- SEUS ATIVOS ---
+# --- ATIVOS ---
 ATIVOS_POR_LINHA = [
     # Linha 1
     [
@@ -145,8 +145,7 @@ class TickerLine:
         
         for _ in range(num_copies):
             for asset in self.assets:
-                # Retângulo ajustado: Margem superior/inferior de 4px (5 até Height-5 era para 80px)
-                # Para 72px, vamos usar margem de 4px para ficar elegante
+                # Para 72px, margem de 4px em cima e embaixo, e 5px nas laterais
                 rect_id = self.canvas.create_rectangle(
                     current_x + 5, 4, 
                     current_x + LARGURA_BLOCO_TOTAL - 5, ALTURA_TICKER_POR_LINHA - 4,

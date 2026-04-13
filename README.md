@@ -1,104 +1,75 @@
 
-# 🚀 Ticker LED Display Scripts
+# Ticker - Scripts
 
-Este repositório contém scripts Python desenvolvidos para exibição de informações em painéis de LED com resolução customizada de 8184x144px. + 1920 O projeto está dividido em duas funcionalidades principais: monitoramento financeiro e exibição de avisos dinâmicos.
+Este repositório contém scripts Python desenvolvidos para exibição de informações em painéis de LED com resolução customizada de 10104x144px. Este painel é dividido em três partes, onde duas são de 4092px e outra de 1920px. O projeto está dividido em duas funcionalidades principais: **monitoramento financeiro** e **exibição de avisos dinâmicos.**
+
 
 ---
 
-## 📂 Estrutura do Repositório
+## 📂 Estrutura de Pastas
 
-* **ticker-financeiro/**: Contém o script `ticker.py` que utiliza `Tkinter` e `yfinance` para exibir cotações de ações, moedas e commodities.
-* **ticker-mensagem/**: Contém o script `message.py` que utiliza `PySide6` para exibir mensagens de texto personalizadas com suporte a GIFs animados.
-* **requirements.txt**: Arquivo com as dependências necessárias para rodar ambos os projetos.
+- **ticker-financeiro/**: Script focado em cotações de mercado.
+    
+- **ticker-mensagem/**: Script para avisos, alertas e mensagens comemorativas.
+    
+- **requirements.txt**: Lista de dependências Python.
 
 ---
 
-## 🛠️ Requisitos e Instalação
+## 🛠️ Instalação
 
-### Dependências
-As bibliotecas necessárias para o funcionamento são:
-* `yfinance` e `pandas` (para os dados financeiros).
-* `PySide6` (para a interface com GIFs).
-
-### Instalação
-1. Instale o Python 3.10 ou superior.
-2. Na raiz do projeto, execute:
-```bash
-   pip install -r requirements.txt
-```
+1. Certifique-se de ter o **Python 3.10** ou superior instalado.
+    
+2. No terminal, acesse a pasta do projeto e instale as bibliotecas:
+    
+    `pip install -r requirements.txt`
 
 ---
 
-## 🖥️ Como Utilizar
+## 📝 Guia de Uso dos Scripts
 
-### Ticker Financeiro
+### 1. Ticker Financeiro
 
-- **Localização**: `ticker-financeiro/ticker.py`
-    
-- **Função**: Exibe duas linhas de 72px cada.
-    
-- **Comandos**: Pressione `ESC` para fechar a aplicação.
+Este script exibe duas linhas de rolagem com dados da B3, moedas e commodities.
 
-### Ticker de Mensagem
+- **Como executar**: `python ticker-financeiro/ticker.py`
+    
+- **Funcionamento**: Ele busca dados via API do Yahoo Finance a cada 1 minuto.
+    
+- **Como fechar**: Pressione a tecla `ESC`.
 
-- **Localização**: `ticker-mensagem/message.py`
+
+### 2. Ticker de Mensagem (Customização)
+
+Este script é focado em textos personalizados e suporte a GIFs.
+
+- **Como executar**: `python ticker-mensagem/message.py`
+
+#### **Como Customizar a Mensagem:**
+
+Abra o arquivo `message.py` em um editor de texto e localize as seguintes linhas no topo do código:
+
+- **Alterar o Texto**: Localize `MESSAGE_TEXT`. Altere o conteúdo entre aspas para a mensagem desejada.
     
-- **Função**: Exibe texto corrido com GIFs (configuráveis via código nas variáveis `GIF_AT_START` e `GIF_AT_END`).
+- **Alterar o GIF**: Localize a variável `GIF_FILENAME`. Coloque o nome do arquivo que está na pasta assets (ex: `"assets/aviso.gif"`). O arquivo .gif deve esta na pasta `ticker-mensagem/assets`
     
-- **Comandos**: Pressione `ESC` para fechar a aplicação.
+- **Posição do GIF**:
+    
+    - `GIF_AT_START = True`: Exibe o GIF antes do texto.
+        
+    - `GIF_AT_END = True`: Exibe o GIF após o texto.
+        
+- **Cores e Fonte**: Você pode ajustar `FONT_SIZE` (tamanho), `TEXT_COLOR` (cor do texto) e `BACKGROUND_COLOR` (cor do fundo) nas constantes globais.
 
 ---
 
-## ⚙️ Notas Técnicas de Infraestrutura
+## ⚙️ Detalhes Técnicos de Infraestrutura
 
-- **Resolução**: Configurado para largura de 8184px e altura total de 144px.
+- **Resolução**: O sistema força uma largura de 10104px para cobrir toda a extensão do painel.
     
-- **Sobreposição**: Ambos os scripts utilizam configurações para permanecerem no topo das outras janelas (Always on Top).
+- **Always on Top**: Ambos os scripts rodam com prioridade visual, ficando sempre acima de qualquer outra janela aberta no Windows/Linux.
     
-- **Rede**: A versão financeira exige acesso à internet para consultar a API do Yahoo Finance.
-
-
-````
-
----
-### 2. requirements.txt
-Crie um arquivo chamado `requirements.txt` na raiz da pasta e cole isto:
-
-text
-yfinance
-pandas
-PySide6
-````
+- **Performance**: A versão de mensagem utiliza PySide6 (Qt) para garantir que a animação dos GIFs não sobrecarregue a CPU.
 
 ---
 
-### 3. .gitignore
-
-Crie um arquivo chamado `.gitignore` na raiz da pasta e cole isto:
-
-Plaintext
-
-```
-__pycache__/
-*.pyc
-venv/
-.env
-.vscode/
-.idea/
-```
-
----
-
-### 💡 Lembrete de Organização de Pastas
-
-Para que tudo funcione conforme o README acima, organize seus arquivos assim:
-
-1. **Pasta Raiz**: Coloque o `README.md`, `requirements.txt` e `.gitignore`.
-    
-2. **Pasta `ticker-financeiro/`**: Coloque o arquivo `ticker.py`.
-    
-3. **Pasta `ticker-mensagem/`**: Coloque o arquivo `message.py`.
-    
-4. **Pasta `ticker-mensagem/assets/`**: Coloque todos os seus arquivos `.gif`.
-    
-    - _Nota: No seu arquivo `message.py`, lembre-se de atualizar o nome do arquivo para `GIF_FILENAME = "assets/corinthians.gif"` (ou o GIF de sua preferência)._
